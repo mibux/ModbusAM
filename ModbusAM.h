@@ -11,7 +11,7 @@ if you have any question, please feel free to contact me by email : ccurtins at 
 
 #include <Arduino.h>
 
-#define BUFFER_SIZE 64
+#define MODBUSAM_BUFFER_SIZE 64
 
 #define COIL_OFF 0x0000 // Function 5 OFF request is 0x0000
 #define COIL_ON 0xFF00 // Function 5 ON request is 0xFF00
@@ -263,7 +263,7 @@ class  Modbus {
 
         Packet* _packet;    //current packet
 
-        uint8_t frame[BUFFER_SIZE]; //frame of packet
+        uint8_t frame[MODBUSAM_BUFFER_SIZE]; //frame of packet
 
         uint16_t T1_5;          //1.5 times of a character connection time
         uint16_t _frame_delay;   //delay time for frame

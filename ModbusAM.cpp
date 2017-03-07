@@ -702,7 +702,7 @@ uint8_t Modbus::getPacket()
 		{
 			/*
 			The maximum number of bytes is limited to the serial buffer size 
-	      	of BUFFER_SIZE. If more bytes is received than the BUFFER_SIZE the 
+	      	of MODBUSAM_BUFFER_SIZE. If more bytes is received than the MODBUSAM_BUFFER_SIZE the 
 	      	overflow flag will be set and the serial buffer will be read until
 	      	all the data is cleared from the receive buffer, while the slave is 
 	      	still responding.
@@ -714,7 +714,7 @@ uint8_t Modbus::getPacket()
 			}
 			else
 			{
-				if (buffer == BUFFER_SIZE)
+				if (buffer == MODBUSAM_BUFFER_SIZE)
 					overflowFlag = 1;
 				frame[buffer] = (*_modbusPort).read();
 				buffer++;
